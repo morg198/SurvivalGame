@@ -1,1 +1,5 @@
-sceneSetups: []
+sceneSetups:
+- path: Assets/_scenes/Daniel's Scenes/[5_10_201] Working on the player character
+    controller system.unity
+  isLoaded: 1
+  isActive: 1
