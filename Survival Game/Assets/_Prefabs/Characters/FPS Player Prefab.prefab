@@ -12,8 +12,7 @@ GameObject:
   - 23: {fileID: 2382350}
   - 136: {fileID: 13670138}
   - 143: {fileID: 14301506}
-  - 114: {fileID: 11491950}
-  - 114: {fileID: 11460380}
+  - 114: {fileID: 11476306}
   m_Layer: 0
   m_Name: FPS Player Prefab
   m_TagString: Player
@@ -164,8 +163,8 @@ Camera:
   m_GameObject: {fileID: 184088}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.019607844}
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0, g: 0.64705884, b: 0.27221093, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -200,7 +199,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 209931d3d7d9e644296208cb110a2678, type: 2}
+  - {fileID: 2100000, guid: d65bafb13fd00764db79e1c3d385444f, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -237,7 +236,7 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 184088}
   m_Enabled: 1
---- !u!114 &11460380
+--- !u!114 &11476306
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -245,32 +244,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 101490}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8df89ab226cc8864b93a79d7b92c77ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 717902e5016a1b04c8b7cc9bad5027ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponHolder: {fileID: 401726}
-  startingGun: {fileID: 11457008, guid: b9e7aad570c74dc459c921129992d82c, type: 2}
-  guns:
-  - {fileID: 11457008, guid: b9e7aad570c74dc459c921129992d82c, type: 2}
-  - {fileID: 11465710, guid: 91a24b270423c524b9710001003284b2, type: 2}
---- !u!114 &11491950
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 101490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 997f0787304ada34da11296770ad0284, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 5
-  walkingSpeed: 5
-  jumpingGravity: 7
+  player: {fileID: 14301506}
+  playerSpeed: 10
+  jumpingGravity: 10
   mouseSensitivity: 5
   upDownRange: 60
-  runSpeed: 10
-  isCrouching: 0
+  playerWalkingSpeed: 10
+  playerRunSpeed: 40
+  playerBackPedalSpeed: 7
+  playerStaminaSystem: 1
+  playerStamina: 10
+  maxStamina: 10
 --- !u!124 &12496628
 Behaviour:
   m_ObjectHideFlags: 1
@@ -302,7 +289,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08

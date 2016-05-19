@@ -38,6 +38,9 @@ public class FPSCharacterMotor : MonoBehaviour {
 
         // lock the cursor the center of the game screen
         Cursor.lockState = CursorLockMode.Locked;
+
+        // Stamina coold down is reset
+        staminaCoolDownOver = true;
     }
 	
 	// Update is called once per frame
@@ -50,7 +53,7 @@ public class FPSCharacterMotor : MonoBehaviour {
         Camera.main.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
 
         // Player wants to RUN
-        if (player.isGrounded && Input.GetKey(KeyCode.LeftShift))
+        if (player.isGrounded && Input.GetKeyDown(KeyCode.LeftShift))
         {
             // check to see if the player stamina system is active
             if (playerStaminaSystem && staminaCoolDownOver)
@@ -94,6 +97,7 @@ public class FPSCharacterMotor : MonoBehaviour {
             {
                 playerStamina = 0;
                 isRunning = false;
+                staminaCoolDownOver = false;
             }
         }
         else if(playerStamina < maxStamina)
