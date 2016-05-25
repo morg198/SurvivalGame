@@ -85,5 +85,6 @@
 "Assets/Scripts/Dylan's Scripts/IdleAi.cs"
 "Assets/Scripts/Dylan's Scripts/patrolAI.cs"
 Assets/dylan3rdPersonController.cs
+Assets/gameManager.cs
 -r:D:\Programs\Unity\Editor\Data\Mono\lib\mono\unity\System.Runtime.Serialization.dll
 -r:D:\Programs\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.Linq.dll
