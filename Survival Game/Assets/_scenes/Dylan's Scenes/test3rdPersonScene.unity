@@ -178,13 +178,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75588a224ced68946b1ec2c3fa85a6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 10
-  runSpeed: 15
-  backPedalSpeed: 5
+  walkSpeed: 8
+  runSpeed: 12
+  backPedalSpeed: 4
   jumpHeight: 2.5
   xSensitivity: 1
   ySensitivity: 2
-  pitchRange: 60
+  playerLeft: 1
+  cam: {fileID: 413321328}
 --- !u!1 &290831271
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +342,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 413321324}
   m_LocalRotation: {x: 0.10002179, y: 0, z: 0, w: 0.9949853}
-  m_LocalPosition: {x: 0.44799995, y: 1.36, z: -3.68}
+  m_LocalPosition: {x: 0.9, y: 1.36, z: -3.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 276228410}

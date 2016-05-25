@@ -15,6 +15,10 @@ public class dylan3rdPersonController : MonoBehaviour {
     public float ySensitivity = 5;
     float yawRot;
 
+    [Header("Cam Options")]
+    public bool playerLeft = true;
+    public Camera cam;
+
     float verticalVel = 0;
     float forwardVel = 0;
     float sideVel = 0;
@@ -28,11 +32,29 @@ public class dylan3rdPersonController : MonoBehaviour {
     CharacterController cc;
 	void Start () {
         cc = gameObject.GetComponent<CharacterController>();
-        camOffset = Camera.main.transform.localPosition;
+        camOffset = cam.transform.localPosition;
         Cursor.visible = false;
+        
 	}
+
+    void swapCamPos()
+    {
+        Debug.Log(cam.transform.localPosition);
+        playerLeft = !playerLeft;
+
+        if (playerLeft && cam.transform.localPosition.x != camOffset.x)
+        {
+            cam.transform.localPosition = new Vector3(camOffset.x, cam.transform.localPosition.y, cam.transform.localPosition.z);
+        }
+        else if (!playerLeft && cam.transform.localPosition.x == camOffset.x)
+        {
+            cam.transform.localPosition = new Vector3(-camOffset.x, cam.transform.localPosition.y, cam.transform.localPosition.z);
+        }
+    }
 	
 	void Update () {
+
+       
 
         //Rotate character with mouse
         yawRot = Input.GetAxis("Mouse X");
@@ -65,7 +87,13 @@ public class dylan3rdPersonController : MonoBehaviour {
         {
             run = false;
         }
-      
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            
+            swapCamPos();
+        }
+
         //Run Diagonally forward
         if (Input.GetAxis("Vertical") > 0 && Input.GetAxis("Horizontal") != 0 && run)
         {
