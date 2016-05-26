@@ -53,19 +53,28 @@ public class FPSCharacterMotor : MonoBehaviour {
         Camera.main.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
 
         // Player wants to RUN
-        if (player.isGrounded && Input.GetKeyDown(KeyCode.LeftShift))
+        if (player.isGrounded && Input.GetKey(KeyCode.LeftShift))
         {
-            // check to see if the player stamina system is active
-            if (playerStaminaSystem && staminaCoolDownOver)
-            {
-                playerSpeed = playerRunSpeed;
+            //// check to see if the player stamina system is active
+            //if (playerStaminaSystem && staminaCoolDownOver)
+            //{
+            //    playerSpeed = playerRunSpeed;
 
-                isRunning = true;
-            }
+            //    isRunning = true;
+            //}
+
+
+            playerSpeed = playerRunSpeed;
+
+            print("Player is running");
+            print(playerSpeed);
+
         }
         else
         {
             playerSpeed = playerWalkingSpeed;
+
+            print(playerSpeed);
         }
 
         // Player wants to JUMP
@@ -78,7 +87,7 @@ public class FPSCharacterMotor : MonoBehaviour {
             characterGravity += Physics.gravity.y * Time.deltaTime;
         }
 
-        // Player is BACKPEDALLing
+        // Player is BACKPEDALLING
         if(player.isGrounded && Input.GetAxisRaw("Vertical") < 0)
         {
             playerSpeed = playerBackPedalSpeed;
@@ -88,19 +97,65 @@ public class FPSCharacterMotor : MonoBehaviour {
             playerSpeed = playerWalkingSpeed;
         }
 
-        // Players STAMINA
+        //// Players STAMINA
+        //if (isRunning)
+        //{
+        //    playerStamina -= Time.deltaTime;
+
+        //    if(playerStamina < 0)
+        //    {
+        //        playerStamina = 0;
+        //        isRunning = false;
+        //        staminaCoolDownOver = false;
+        //    }
+        //}
+        //else if(playerStamina < maxStamina)
+        //{
+        //    if (playerStamina > 3)
+        //    {
+        //        staminaCoolDownOver = true;
+        //    }
+
+        //    playerStamina += Time.deltaTime;
+        //}
+
+        // Player BASIC MOVEMENT
+        //Vector3 playerInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        //Vector3 direction = playerInput.normalized;
+
+        //direction = player.transform.TransformDirection(direction);
+
+        //Vector3 velocity = direction * playerSpeed;
+
+        //velocity.y = velocity.y + characterGravity;
+
+
+        //Vector3 moveAmount = velocity * Time.deltaTime;
+
+
+        Vector3 playerInput = new Vector3(Input.GetAxis("Horizontal") * playerSpeed,
+                                          characterGravity,
+                                          Input.GetAxis("Vertical") * playerSpeed);
+
+        playerInput = transform.rotation * playerInput;
+
+        player.Move(playerInput * Time.deltaTime);
+	}
+
+    void Stamina()
+    {
         if (isRunning)
         {
             playerStamina -= Time.deltaTime;
 
-            if(playerStamina < 0)
+            if (playerStamina < 0)
             {
                 playerStamina = 0;
                 isRunning = false;
                 staminaCoolDownOver = false;
             }
         }
-        else if(playerStamina < maxStamina)
+        else if (playerStamina < maxStamina)
         {
             if (playerStamina > 3)
             {
@@ -109,19 +164,5 @@ public class FPSCharacterMotor : MonoBehaviour {
 
             playerStamina += Time.deltaTime;
         }
-
-        // Player BASIC MOVEMENT
-        Vector3 playerInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-        Vector3 direction = playerInput.normalized;
-
-        direction = player.transform.TransformDirection(direction);
-
-        Vector3 velocity = direction * playerSpeed;
-
-        velocity.y = velocity.y + characterGravity;
-
-        Vector3 moveAmount = velocity * Time.deltaTime;
-
-        player.Move(moveAmount);
-	}
+    }
 }
