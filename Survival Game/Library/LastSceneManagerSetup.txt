@@ -1,5 +1,4 @@
 sceneSetups:
-- path: Assets/_scenes/Daniel's Scenes/[5_10_201] Working on the player character
-    controller system.unity
+- path: Assets/_scenes/Dylan's Scenes/test3rdPersonScene.unity
   isLoaded: 1
   isActive: 1
