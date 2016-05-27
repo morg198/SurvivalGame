@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/_scenes/Dylan's Scenes/test3rdPersonScene.unity
-  isLoaded: 1
-  isActive: 1
