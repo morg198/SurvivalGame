@@ -5,6 +5,8 @@
 -r:D:/Programs/Unity/Editor/Data/Managed/UnityEngine.dll
 -r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
 -r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
+-r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
+-r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
 -r:D:/Programs/Unity/Editor/Data/Managed/UnityEditor.dll
 -r:D:/Programs/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll
 -r:D:/Programs/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Common.dll
@@ -80,7 +82,15 @@
 -define:UNITY_EDITOR_64
 -define:UNITY_EDITOR_WIN
 Assets/Intro.cs
+"Assets/Scripts/Daniel's Scripts/Combat/FPSPlayerHUD.cs"
+"Assets/Scripts/Daniel's Scripts/Combat/Gun.cs"
+"Assets/Scripts/Daniel's Scripts/Combat/GunController.cs"
+"Assets/Scripts/Daniel's Scripts/Enemies/AIAnimationControl.cs"
+"Assets/Scripts/Daniel's Scripts/Enemies/AILife.cs"
+"Assets/Scripts/Daniel's Scripts/Enemies/AISteeringBehaviours.cs"
+"Assets/Scripts/Daniel's Scripts/Player/CursorLockStateControl.cs"
 "Assets/Scripts/Daniel's Scripts/Player/FPSCharacterMotor.cs"
+"Assets/Scripts/Daniel's Scripts/Player/FPSSimpleCharacterController.cs"
 "Assets/Scripts/Dylan's Scripts/AiController.cs"
 "Assets/Scripts/Dylan's Scripts/FollowAi.cs"
 "Assets/Scripts/Dylan's Scripts/IdleAi.cs"

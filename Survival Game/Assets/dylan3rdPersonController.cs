@@ -18,6 +18,10 @@ public class dylan3rdPersonController : MonoBehaviour {
     [Header("Cam Options")]
     public bool playerLeft = true;
     public Camera cam;
+    public float pitchAngle = 60;
+    float camAngle;
+    float pitchRot = 0;
+    float camRad = 1;
 
     float verticalVel = 0;
     float forwardVel = 0;
@@ -32,7 +36,10 @@ public class dylan3rdPersonController : MonoBehaviour {
     CharacterController cc;
 	void Start () {
         cc = gameObject.GetComponent<CharacterController>();
+        cam.transform.localPosition = new Vector3(cam.transform.localPosition.x, camRad, cam.transform.localPosition.z);
         camOffset = cam.transform.localPosition;
+        camAngle = Vector3.Angle(cam.transform.localPosition, gameObject.transform.localPosition);
+        Debug.Log(camAngle);
         Cursor.visible = false;
         
 	}
@@ -59,6 +66,15 @@ public class dylan3rdPersonController : MonoBehaviour {
         //Rotate character with mouse
         yawRot = Input.GetAxis("Mouse X");
         transform.Rotate(0, yawRot * xSensitivity, 0);
+
+
+        camAngle -= Input.GetAxis("Mouse Y") * ySensitivity;
+        camAngle = Mathf.Clamp(camAngle, -pitchAngle/2, pitchAngle);
+
+        cam.transform.localRotation = Quaternion.Euler(camAngle, 0, 0);
+
+        cam.transform.localPosition = new Vector3(cam.transform.localPosition.x, camAngle/16, cam.transform.localPosition.z);
+
 
         //Give player a velocity 
         forwardVel = Input.GetAxis("Vertical");
@@ -122,7 +138,7 @@ public class dylan3rdPersonController : MonoBehaviour {
 			 * 
 			 */
 
-            float adjustedSpeed = Mathf.Sqrt((runSpeed * runSpeed) / 2);
+        float adjustedSpeed = Mathf.Sqrt((runSpeed * runSpeed) / 2);
             cc.Move(velocity * adjustedSpeed * Time.deltaTime);
 
         }

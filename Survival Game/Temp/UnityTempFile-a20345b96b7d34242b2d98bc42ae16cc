@@ -2,10 +2,14 @@
 -target:library
 -nowarn:0169
 -out:Temp/Assembly-CSharp.dll
--r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll"
--r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll"
--r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
--r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll"
+-r:D:/Programs/Unity/Editor/Data/Managed/UnityEngine.dll
+-r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
+-r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
+-r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
+-r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
+-r:D:/Programs/Unity/Editor/Data/Managed/UnityEditor.dll
+-r:D:/Programs/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll
+-r:D:/Programs/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Common.dll
 -define:UNITY_5_3_OR_NEWER
 -define:UNITY_5_3_4
 -define:UNITY_5_3
@@ -93,5 +97,5 @@ Assets/Intro.cs
 "Assets/Scripts/Dylan's Scripts/patrolAI.cs"
 Assets/dylan3rdPersonController.cs
 Assets/gameManager.cs
--r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Runtime.Serialization.dll"
--r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.Linq.dll"
+-r:D:\Programs\Unity\Editor\Data\Mono\lib\mono\unity\System.Runtime.Serialization.dll
+-r:D:\Programs\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.Linq.dll
